@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Get Jobs</title>
+    <title>AyoKerja.com</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="asset/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">GetJobs.com</a>
+                <a class="navbar-brand page-scroll" href="#page-top">AyoKerja.com</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,7 +54,6 @@
                     </li>
                     <li><a href="{{ url('/login') }}">Pasang Iklan</a></li>
                     <li><a href="{{ url('/perusahaans') }}">Lowongan Pekerjaan</a></li>
-        			<li><a href="{{ url('/tips') }}">Tips GetJobs</a></li>
                     <a href="{{ url('/login') }}" class="page-scroll btn btn-xl">LOGIN</a>
                     
                     
@@ -71,7 +70,7 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Selamat datang di GetJobs.com</div>
+                <div class="intro-lead-in">Selamat datang di AyoKerja.com</div>
                 <div class="intro-heading">INFORMASI LOWONGAN PEKERJAAN</div>
                 
             </div>

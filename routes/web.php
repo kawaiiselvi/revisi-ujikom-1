@@ -34,24 +34,22 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin']], function(){
+Route::group(['prefix'=>'admin','middleware'=>['auth']], function(){
 	Route::resource('pekerjas','PekerjasController');
+	Route::resource('members','MembersController');
 	Route::resource('perusahaans','PerusahaansController');
 	Route::resource('lokers','LokersController');
-	Route::resource('karyawans','KaryawansController');
-	Route::resource('tips','TipsController');
-	Route::resource('komentars','KomentarsController');
 });
 
-Route::group(['prefix'=>'member','middleware'=>['auth','role:member']], function(){
+Route::group(['prefix'=>'member','middleware'=>['auth']], function(){
 	Route::resource('lowongans','LowongansController');
-	Route::resource('members','MembersController');
+	
 	Route::resource('civis','CivisController');
 	Route::get('civi/tambah/{id}', 'CivisController@tambah');
 	Route::resource('pekerjas','PekerjasController');
 });
 
-Route::group(['prefix'=>'perusahaan','middleware'=>['auth','role:perusahaan']], function(){
+Route::group(['prefix'=>'perusahaan','middleware'=>['auth']], function(){
 	Route::resource('pers','PersController');
 	Route::resource('pegawais','PegawaisController');
 });

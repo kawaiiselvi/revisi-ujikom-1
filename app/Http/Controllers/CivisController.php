@@ -87,6 +87,18 @@ class CivisController extends Controller
         $civi->lowongan_id = $request->lowongan_id;
         $jj = Perusahaan::find($request->lowongan_id);
         $civi->akun_id = $jj->akun_id;
+
+        if($request->hasFile('cover'))
+        {
+            $uploaded_cover=$request->file('cover');
+            $extension=$uploaded_cover->getClientOriginalExtension();
+            $filename=md5(time()).'.'.$extension;
+            $destinationPath=public_path().DIRECTORY_SEPARATOR.'img';
+            $uploaded_cover->move($destinationPath, $filename);
+            $civi->cover=$filename;
+            
+        }
+
         $civi->save();
         Session::flash("flash_notification", [
             "level"=>"success",

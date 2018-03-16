@@ -4,7 +4,6 @@
 	<div class="row">
 		<div class="col-md-12">
 			<ul class="breadcrumb">
-				<li><a href="{{ url('/home') }}">Dashboard</a></li>
 				<li class="active">Lowongan</li>
 			</ul>
 			<div class="panel panel-primary">
@@ -12,12 +11,16 @@
 					<h2 class="panel-title">Lowongan</h2>
 				</div>
 				<div class="panel-body">
+					<form action="{{route('pers.store')}}" method="post" enctype="multipart/form-data">
+					{{csrf_field()}}
 					
 					<div class="table-responsive">
 						<table class="table">
 				<thead>
 					<tr>
+						<th>Tanggal Rilis</th>
 						<th>Perusahaan</th>
+						<th>Profil</th>
 						<th>Membutuhkan</th>
 						<th>Jabatan</th>
 						<th>Lokasi</th>
@@ -29,7 +32,9 @@
 				<tbody>
 					@foreach($lowongan as $data)
 					<tr> 
+						<td>{{$data->created_at}}</td>
 						<td><a href="{{route('lowongans.show', $data->id)}}">{{$data->nama}}</a></td>
+						<td><img src="{{asset('img/'.$data->cover)}}" height="50px"></td>
 						<td>{{$data->perusahaan}}</td>
 						<td>{{$data->jabatan}}</td>
 						<td>{{$data->lokasi}}</td>

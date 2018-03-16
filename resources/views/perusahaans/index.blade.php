@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+<body background="foto2.jpg">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -32,4 +32,5 @@
 			</div>
 		</div>
 	</div>
+</body>
 @endsection

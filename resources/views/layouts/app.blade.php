@@ -38,22 +38,20 @@
                     <ul class="nav navbar-nav">
                     @if(Auth::check())
                         @role('perusahaan')
+                        <li><a href="{{ url('/home') }}">Dashboard</a></li>
                         <li><a href="{{ url('/perusahaan/pers') }}">Masukan Lowongan</a></li>
                         <li><a href="{{ url('/perusahaan/pegawais') }}">Daftar Pelamar</a></li>
                         @endrole
 
                         @role('admin')
-                        <li><a href="{{ url('/admin/perusahaans') }}">Profil</a></li>
-                        <li><a href="{{ url('/admin/pekerjas') }}">Member</a></li>
+                        <li><a href="{{ url('/home') }}">Dashboard</a></li>
+                        <li><a href="{{ url('/admin/pekerjas') }}">User</a></li>
                         <li><a href="{{ url('/admin/lokers') }}">Daftar Lowongan</a></li>
-                        <li><a href="{{ url('/admin/karyawans') }}">Daftar Pelamar</a></li>
-                        <li><a href="{{ url('/admin/tips') }}">Tips GetJobs</a></li>
-                        
                         @endrole
 
                         @role('member')
+                        <li><a href="{{ url('/home') }}">Dashboard</a></li>
                         <li><a href="{{ url('/member/lowongans') }}">Lowongan</a></li>
-                        <li><a href="{{ url('/member/members') }}">Profil</a></li>
                         @endrole
                     @endif
                     </ul>

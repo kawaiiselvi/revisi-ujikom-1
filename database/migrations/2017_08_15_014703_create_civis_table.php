@@ -16,6 +16,7 @@ class CreateCivisTable extends Migration
         Schema::create('civis', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
+            $table->string('cover')->nullable();
             $table->string('ttl');
             $table->text('alamat');
             $table->string('notlp');

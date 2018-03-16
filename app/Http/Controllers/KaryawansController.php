@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\karyawans;
+use App\karyawan;
 use App\Civi;
 use Session;
 

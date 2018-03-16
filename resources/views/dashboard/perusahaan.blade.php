@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+<body background="foto2.jpg">
     <!-- <div class="container">
  -->	<!-- <div class="row">
 		<div class="col-md-7"> -->
@@ -10,12 +10,13 @@
 				</div> -->
 				<div class="panel-body">
 				<center>
-                    <h1><font size="6" face="Bradley Hand ITC" color="#1E90FF">Selamat Datang di GetJobs.com ^^
-                    <br/> Silahkan Pilih Menu Yang Anda Inginkan^^</font></h1> 
+                    <b><font size="7" face="Bradley Hand ITC" color="#1E90FF">Selamat Datang di GetJobs.com
+                    <br/> Silahkan Pilih Menu Yang Anda Inginkan^^</font> </b>
                  </center>
                 </div>
 			</div>
 		</div>
 	</div>
 </div>
-    @endsection
+</body>
+@endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Pekerja;
 use Session;
 
 class PekerjasController extends Controller
@@ -14,10 +15,10 @@ class PekerjasController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     public function index()
     {
         //
@@ -99,6 +100,6 @@ class PekerjasController extends Controller
         //
         $pekerja = Pekerja::findOrFail($id);
         $pekerja->delete();
-        return redirect('/admin/pekerja');
+        return redirect('/admin/pekerjas');
     }
 }

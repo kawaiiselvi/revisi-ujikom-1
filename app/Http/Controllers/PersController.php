@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pers;
+use App\Lowongan;
 use Session;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Auth;
 
 class PersController extends Controller
 {
@@ -22,7 +24,8 @@ class PersController extends Controller
     public function index()
     {
         //
-        return view('pers.index');
+        $lowongan = Pers::where('nama', '=', Auth::user()->name)->get();
+        return view('pers.index', compact('lowongan'));
     }
 
     /**
@@ -46,7 +49,6 @@ class PersController extends Controller
         //
         $this->validate($request, [
             'perusahaan'=>'required',
-            'nama'=>'required',
             'jabatan'=>'required',
             'lokasi'=>'required',
             'pendidikan'=>'required',
@@ -54,14 +56,27 @@ class PersController extends Controller
             'gaji'=>'required']);
         $pers = new Pers;
         $pers->perusahaan = $request->perusahaan;
-        $pers->nama = $request->nama;
+        $pers->nama = Auth::user()->name;
         $pers->jabatan = $request->jabatan;
         $pers->lokasi = $request->lokasi;
         $pers->pendidikan = $request->pendidikan;
         $pers->deskripsi = $request->deskripsi;
         $pers->gaji = $request->gaji;
         $pers->akun_id = Auth::user()->id;
+
+        if($request->hasFile('cover'))
+        {
+            $uploaded_cover=$request->file('cover');
+            $extension=$uploaded_cover->getClientOriginalExtension();
+            $filename=md5(time()).'.'.$extension;
+            $destinationPath=public_path().DIRECTORY_SEPARATOR.'img';
+            $uploaded_cover->move($destinationPath, $filename);
+            $pers->cover=$filename;
+            
+        }
+
         $pers->save();
+
         Session::flash("flash_notification", [
             "level"=>"success",
             "message"=>"Berhasil Menyimpan $pers->perusahaan"]);
@@ -111,5 +126,8 @@ class PersController extends Controller
     public function destroy($id)
     {
         //
+        $pers = Pers::findOrFail($id);
+        $pers->delete();
+        return redirect('/perusahaan/pers');
     }
 }

@@ -23,6 +23,7 @@ class CreatePerusahaansTable extends Migration
             $table->string('pendidikan');
             $table->string('deskripsi');
             $table->string('gaji');
+            $table->string('cover')->nullable();
             $table->timestamps();
         });
     }

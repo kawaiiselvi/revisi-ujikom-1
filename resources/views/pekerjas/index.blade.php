@@ -4,7 +4,6 @@
 	<div class="row">
 		<div class="col-md-12">
 			<ul class="breadcrumb">
-				<li><a href="{{ url('/home') }}">Dashboard</a></li>
 				<li class="active">Member</li>
 			</ul>
 			<div class="panel panel-primary">
@@ -32,9 +31,8 @@
 							<td><form action="{{route('pekerjas.destroy',$data->id)}}" method="post">
 								<input type="hidden" name="_method" value="DELETE">
 								<input type="hidden" name="_token" >
-								<input type="submit" class="btn btn-danger" value="Delete">
-						</form>
-					</td>
+								<input type="submit" class="btn btn-danger" value="Delete">{{csrf_field()}}
+						</form></td>
 				</tr>
 				@endforeach
 				</tbody>
